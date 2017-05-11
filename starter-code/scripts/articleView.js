@@ -66,6 +66,7 @@ articleView.handleCategoryFilter = function() {
 };
 
 articleView.handleMainNav = function() {
+
   $('.main-nav li').on('click', function() {
     var $selectorTab = $(this).attr('data-content');
     $('.tab-content').hide();
@@ -74,24 +75,31 @@ articleView.handleMainNav = function() {
 
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
-
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any article body.
 
   $('.read-on').on('click', function() {
     event.preventDefault();
-    $('.article-body *:nth-of-type(n+2)').fadeIn(750);
-    $(this).hide();
+    console.log('outside');
+    if($(this).attr('data-read') === 'read'){
+      console.log('inside');
+      $('.article-body *:nth-of-type(n+2)').fadeIn(750);
+      // $(this).hide();
+      $(this).attr('data-read', 'hide');
+      $(this).html('hide &larr;');
+    }else{
+      $('.article-body *:nth-of-type(n+2)').hide();
+      $(this).html('Read on &rarr;');
+      $(this).attr('data-read', 'read');
+    }
   });
-
-  // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
-
 };
+  // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
 
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function() {
   articleView.handleMainNav();
-  articleView.populateFilters()
+  articleView.populateFilters();
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
   articleView.setTeasers();
