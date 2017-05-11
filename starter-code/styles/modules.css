@@ -1,8 +1,8 @@
 .site-header {
-  background: #FFEAAA;
+  background: #12244B;
   padding: .1em;
+  color: white;
 }
-
 .icon-menu {
   font-size: 3em;
   float: right;
@@ -80,7 +80,7 @@
   }
 
   .main-nav ul li:hover a {
-    color: #29506D;
+    color: #C4C6C8;
   }
 
 }
