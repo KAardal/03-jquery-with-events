@@ -61,7 +61,7 @@ articleView.handleCategoryFilter = function() {
       $('article').fadeIn(750);
       $('article.template').hide();
     }
-    $('#category-filter').val('');
+    $('#author-filter').val('');
   });
 };
 
@@ -81,10 +81,10 @@ articleView.setTeasers = function() {
   $('.read-on').on('click', function() {
     event.preventDefault();
     console.log('outside');
+    $(this).siblings('.article-body').children().show();
     if($(this).attr('data-read') === 'read'){
       console.log('inside');
-      $('.article-body *:nth-of-type(n+2)').fadeIn(750);
-      // $(this).hide();
+      $(this).siblings('.article-body').children().show();
       $(this).attr('data-read', 'hide');
       $(this).html('hide &larr;');
     }else{
