@@ -10,7 +10,6 @@ function Article (rawDataObj) {
   this.body = rawDataObj.body;
   this.publishedOn = rawDataObj.publishedOn;
 }
-
 Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
   $newArticle.removeClass('template');
